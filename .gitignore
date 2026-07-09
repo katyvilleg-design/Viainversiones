@@ -1,1 +1,22 @@
 .env
+.claude/skills/video-use/.env
+
+# Python (video-use venv, generated in each container)
+.venv/
+__pycache__/
+*.pyc
+
+# Node (hyperframes projects, installed on demand)
+node_modules/
+
+# Raw footage and rendered output live under videos/ — never commit media
+videos/**/*.mp4
+videos/**/*.mov
+videos/**/*.mkv
+videos/**/*.wav
+videos/**/*.mp3
+videos/**/*.m4a
+videos/**/edit/
+videos/**/raw/
+!videos/**/*.md
+!**/.gitkeep
