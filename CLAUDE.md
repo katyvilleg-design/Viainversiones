@@ -65,6 +65,17 @@ videos/                        # tus proyectos de video (no se commitea el mater
 .env                             # ELEVENLABS_API_KEY (no se commitea)
 ```
 
+## Láminas / tarjetas de texto con transición fuerte y sonido
+
+Cuando el pedido sea "agrégale láminas/tarjetas con transición fuerte y
+sonido" (fact-check cards, preguntas, citas, etc. insertadas en una
+entrevista), lee primero
+`.claude/skills/video-use/helpers/laminas/LAMINAS_LESSONS.md` — documenta
+el flujo completo y dos errores costosos ya resueltos (parpadeo por
+congelar el último frame de un clip fuente, y `amix` bajando el diálogo
+por no usar `normalize=0`). Los scripts reutilizables están en
+`helpers/laminas/` junto a ese archivo.
+
 ## Actualizar las skills
 
 Ambas skills están vendorizadas (copiadas dentro del repo, no como
