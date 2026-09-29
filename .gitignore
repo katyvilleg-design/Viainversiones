@@ -16,6 +16,9 @@ videos/**/*.mkv
 videos/**/*.wav
 videos/**/*.mp3
 videos/**/*.m4a
+videos/**/*.png
+videos/**/*.jpg
+videos/**/*.jpeg
 videos/**/edit/
 videos/**/raw/
 !videos/**/*.md
