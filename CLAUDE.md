@@ -76,6 +76,20 @@ congelar el último frame de un clip fuente, y `amix` bajando el diálogo
 por no usar `normalize=0`). Los scripts reutilizables están en
 `helpers/laminas/` junto a ese archivo.
 
+## Reedición de reels ya publicados (sin tocar audio/guion)
+
+Cuando el pedido sea "reedita/pule este reel" sobre un video ya grabado y
+publicado (la usuaria sube la voz limpia sin música y pide que yo
+proponga subtítulos, overlays y música sin cambiar ni el audio ni el
+guion), lee primero
+`.claude/skills/video-use/helpers/reedicion-reels/REEDICION_REELS_LESSONS.md`
+— documenta cómo sintetizar música de fondo local y gratuita (sin
+créditos de IA) con pulso/ritmo en vez de un pad plano, cómo medir y
+mezclarla bajo la voz sin aplastarla (`amix normalize=0` + medir dB antes
+de fijar el volumen), y cómo armar subtítulos palabra por palabra con una
+palabra clave resaltada en otro color. El script reutilizable de música
+está en `helpers/reedicion-reels/make_bgm_ritmo.py`.
+
 ## Actualizar las skills
 
 Ambas skills están vendorizadas (copiadas dentro del repo, no como
