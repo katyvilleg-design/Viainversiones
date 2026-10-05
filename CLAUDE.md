@@ -76,6 +76,15 @@ congelar el último frame de un clip fuente, y `amix` bajando el diálogo
 por no usar `normalize=0`). Los scripts reutilizables están en
 `helpers/laminas/` junto a ese archivo.
 
+## Identidad de marca
+
+Antes de generar cualquier elemento visual (portadas, overlays, texto en
+pantalla, colores de subtítulos) lee `BRAND.md` en la raíz del repo —
+tiene la paleta cromática oficial, tipografía, tono de voz y estilo
+fotográfico de Viainversiones. Es una regla dura: la marca pide colores
+suaves y de bajo contraste ("susurrar, no gritar confianza"), así que
+nunca usar negro/navy casi puro + acentos saturados tipo neón.
+
 ## Reedición de reels ya publicados (sin tocar audio/guion)
 
 Cuando el pedido sea "reedita/pule este reel" sobre un video ya grabado y
