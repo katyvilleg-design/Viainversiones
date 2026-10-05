@@ -78,14 +78,22 @@ de frases — se pierde la granularidad), usando los timestamps word-level
 de Scribe, y envolver la palabra clave con tags de color inline:
 
 ```
-{{\c&H003DB3E8&}}DCA{{\c&H00FFFFFF&}}
+{{\c&H00AA66B5&}}DCA{{\c&H00FFFFFF&}}
 ```
 
-(ASS usa `&HAABBGGRR&` — para `#E8B33D` dorado, el código es
-`&H003DB3E8&`). Ver `build_subs.py` dentro de cada carpeta de proyecto
+(ASS usa `&HAABBGGRR&` — **usar siempre los colores de `BRAND.md`**, no
+un dorado/neón inventado. Para el Azul Sereno `#4A80B5` el código es
+`&H00B5804A&`; para el Dorado Tenue `#DAB97C` es `&H007CB9DA&`. La v1 del
+reel de DCA usó un dorado saturado `#E8B33D` que NO es el de marca — se
+corrigió después de que la usuaria compartió sus documentos de marca.
+Ver `BRAND.md` en la raíz del repo antes de elegir cualquier color.)
+Ver `build_subs.py` dentro de cada carpeta de proyecto
 (`videos/<reel>/edit/build_subs.py`) como plantilla — no está
 centralizado aquí porque cada reel resalta una palabra/color distinto.
-Fuente usada: DejaVu Sans Bold (viene preinstalada, soporta tildes/ñ).
+Fuente usada: DejaVu Sans Bold (viene preinstalada, soporta tildes/ñ) —
+sustituto temporal de Poppins/Nunito/Inter (los de marca), que no están
+disponibles en este entorno ni se pueden descargar por la política de
+red actual. Ver nota de tipografía en `BRAND.md`.
 
 ## Overlays animados (checklist, gráficos, íconos de CTA)
 
