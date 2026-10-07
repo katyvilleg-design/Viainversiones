@@ -17,6 +17,17 @@ No hace falta invocar `hyperframes` a mano para gráficos en movimiento:
 pídele a `video-use` el edit completo (muletillas + gráficos) y él
 reparte el trabajo.
 
+## Regla fija: siempre considerar Motion Graphics
+
+En **todo** video que se edite a partir de ahora, Motion Graphics
+(overlays animados vía `hyperframes`/`motion-graphics`: cifras, listas,
+pros/contras, CTA, etc.) es un parámetro por defecto a evaluar — no algo
+que la usuaria tenga que pedir explícitamente cada vez. Al proponer el
+plan de edición, siempre incluir una sugerencia concreta de qué gráficos
+en movimiento le añadirían valor al guion/contenido de ese video en
+particular, y confirmarlo con ella antes de construirlos (sigue aplicando
+BRAND.md para colores).
+
 ## Flujo de trabajo
 
 1. Crea una carpeta por proyecto dentro de `videos/`, p. ej.
