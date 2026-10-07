@@ -28,6 +28,14 @@ en movimiento le añadirían valor al guion/contenido de ese video en
 particular, y confirmarlo con ella antes de construirlos (sigue aplicando
 BRAND.md para colores).
 
+## Regla fija: preguntar por la portada al cerrar un edit
+
+En cuanto la usuaria confirme que un video editado quedó bien (sin más
+objeciones, "está listo"), preguntarle de inmediato si quiere que genere
+la portada de Instagram para ese reel — no esperar a que ella lo pida por
+su cuenta en otro momento. Esto aplica a partir de ahora, para todos los
+reels futuros.
+
 ## Flujo de trabajo
 
 1. Crea una carpeta por proyecto dentro de `videos/`, p. ej.
