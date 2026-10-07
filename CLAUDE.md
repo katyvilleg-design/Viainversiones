@@ -87,6 +87,29 @@ congelar el último frame de un clip fuente, y `amix` bajando el diálogo
 por no usar `normalize=0`). Los scripts reutilizables están en
 `helpers/laminas/` junto a ese archivo.
 
+## Portadas: zona segura del título (regla fija)
+
+En **toda** portada de Instagram (1080x1920) que se genere a partir de
+ahora, el bloque de título (eyebrow + headline + badge) debe cumplir dos
+condiciones a la vez, verificadas antes de entregar el archivo:
+
+1. **No lo tapa el recorte de grid de Instagram.** El thumbnail del perfil
+   recorta la portada a ~4:5 (1080x1350), quitando ~285px arriba y ~285px
+   abajo. Mantener el texto dentro de y 380-1550 (con margen). Verificar
+   simulando el recorte: `im.crop((0, (H-1350)//2, W, (H-1350)//2+1350))`
+   y mirar el resultado antes de entregar.
+2. **Ninguna letra ni detalle tapa la cara.** Medir dónde nace el cabello
+   en la foto fuente de cada portada (overlay de grid de coordenadas cada
+   100px, como en `fix_chin.py`/`grid_overlay_check.jpg`) y asegurar que
+   el bloque de texto termine claramente por encima de ese punto (~50px
+   de margen). Si el guion es largo (3 líneas) y no cabe con margen,
+   reducir el tamaño de fuente/interlineado del titular en vez de dejarlo
+   invadir el cabello o la cara.
+
+Si tras esto no queda espacio seguro para el `@viainversiones` sin
+acercarse a la cara, omitirlo en esa portada en particular (mejor sin
+handle que tapando la cara).
+
 ## Identidad de marca
 
 Antes de generar cualquier elemento visual (portadas, overlays, texto en
