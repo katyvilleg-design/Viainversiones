@@ -23,3 +23,6 @@ videos/**/edit/
 videos/**/raw/
 !videos/**/*.md
 !**/.gitkeep
+
+# Proyectos de prueba puntuales (validación de config, no reels reales)
+videos/prueba-duplica-inversion/
