@@ -36,6 +36,16 @@ la portada de Instagram para ese reel — no esperar a que ella lo pida por
 su cuenta en otro momento. Esto aplica a partir de ahora, para todos los
 reels futuros.
 
+## Regla fija: los recursos visuales son dinámicos por defecto
+
+Cuando la usuaria pida un recurso/gráfico para acompañar algo (una frase,
+un dato, un ejemplo), construirlo **en movimiento continuo** por defecto
+(estilo de la pieza "HOY vs SE DUPLICA": elementos que crecen/se revelan
+y además tienen algo animándose todo el tiempo — línea con shimmer,
+breathing, etc. — nunca una tarjeta que se arma una vez y luego queda
+quieta). Solo construir algo estático si ella lo pide explícitamente. Si
+no lo pide, asumir movimiento.
+
 ## Flujo de trabajo
 
 1. Crea una carpeta por proyecto dentro de `videos/`, p. ej.
