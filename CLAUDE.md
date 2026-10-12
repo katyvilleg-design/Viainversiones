@@ -155,89 +155,145 @@ está en `helpers/reedicion-reels/make_bgm_ritmo.py`.
 
 A partir de ahora, **todo** reel que se construya (editado desde cámara o
 100% animado desde audio) debe seguir este estándar sin que la usuaria lo
-repita cada vez. Resumen operativo de las instrucciones dadas el
-2026-10-12:
+repita cada vez — "master prompt" dado el 2026-10-12 (y su versión
+ampliada el mismo día). Actuar como equipo completo de producción
+(dirección creativa, motion graphics, data-viz, sonido, QA) y **ejecutar**,
+no solo describir u opinar.
 
-**Rol:** actuar como equipo completo de producción (dirección creativa,
-motion graphics, data-viz, sonido, QA) — no solo como asesor. Ejecutar,
-no solo describir.
+**Especificaciones de exportación:** vertical 9:16, 1080x1920, MP4,
+máximo 60s (si el audio real supera 60s, avisar y pedir autorización
+antes de recortarlo — nunca acelerar la voz para encajar).
 
-**Especificaciones:** vertical 9:16, 1080x1920, MP4, máximo 60s (si el
-audio real supera 60s, avisar y pedir autorización antes de recortarlo —
-nunca acelerar la voz para encajar).
+**Detección de modalidad (automática, sin preguntar):**
+- **Modalidad A — 100% animado:** llega solo audio o solo guion de
+  texto. Construir toda la narrativa visual (gráficos, infografías,
+  diagramas, comparaciones, cifras animadas). Nada de diapositivas
+  estáticas ni sucesión de imágenes genéricas — lenguaje cinematográfico,
+  movimiento, continuidad. Si solo llega texto (sin audio), avisar que
+  no hay narración disponible y dejar el proyecto listo para
+  sincronizarla cuando ella la grabe — nunca clonar su voz ni inventar
+  una grabación.
+- **Modalidad B — híbrido con cámara:** llega un video de ella hablando
+  a cámara. Combinar su presencia real con recursos visuales — no tiene
+  que estar en pantalla los 60s completos; decidir con criterio
+  narrativo cuándo su imagen aporta (conexión/confianza/énfasis) y
+  cuándo conviene sustituirla por una explicación visual. Nunca
+  modificar sus facciones, proporciones, expresiones o identidad; nunca
+  generar versiones artificiales de su rostro o movimientos. Conservar
+  gestos naturales, permitir ajustes de encuadre/color/iluminación,
+  evitar cortes que produzcan saltos corporales raros, no alterar la voz
+  original.
 
-**Diseño sonoro — obligatorio, no opcional:**
-- Todo video lleva SFX (whooshes en transiciones, pops al aparecer
-  cifras/elementos, ticks en contadores/porcentajes, impacts en remates,
-  risers antes de revelar un dato) sincronizados con el movimiento exacto
-  — nunca antes/después sin intención, nunca un efecto por cada palabra.
-- Todo video lleva música instrumental de fondo (ver abajo cómo se
-  genera en este entorno) que nunca compite con la voz.
-- La voz es siempre el elemento dominante: mezclar con `amix
-  normalize=0`, medir niveles con `ffmpeg -af volumedetect` antes de
-  fijar el volumen de SFX/música (no fiarse del oído), aplicar ducking
-  cuando la música conviva con el habla, evitar picos/distorsión.
-- **Cómo se genera en este entorno** (sin internet para bancos de sonido
-  ni música con copyright): SFX se sintetizan localmente con ffmpeg
-  (ruido filtrado para whooshes, tonos cortos con decay para
-  ticks/pops, acordes de senos superpuestos para chimes/impacts — igual
-  que en `videos/como-reducir-gastos-animado/edit/sfx/`). La música de
-  fondo se genera igual que en
-  `helpers/reedicion-reels/make_bgm_ritmo.py` (pulso/ritmo local, no un
-  pad plano, sin créditos de IA). No existe clonación de voz en este
-  entorno — nunca intentar generar una narración con la voz de la
-  usuaria; si falta audio, dejar el proyecto listo para que ella lo
-  grabe.
+**Fidelidad al guion:** el guion que la usuaria aprueba no se reescribe,
+reordena ni se le cambian las palabras, el tono o el CTA por iniciativa
+propia. Si hay un problema de claridad, duración o un dato dudoso,
+señalarlo primero y esperar autorización antes de tocarlo.
 
-**Subtítulos — obligatorio, no opcional:** todo reel lleva subtítulos
-palabra por palabra quemados encima de todo (último paso del montaje,
-después de cualquier escena/overlay). No basta con un estilo genérico
-plantado encima: el subtítulo debe leerse acorde a la estructura visual
-de ESE video en particular — mismo criterio de paleta que la pieza
-(colores de marca, nunca un acento que choque con lo que ya está en
-pantalla), posición que no tape badges/íconos/texto en pantalla de esa
-escena, y resaltado de palabras clave (cifras, palabras de
-solución/beneficio) coherente con los colores que esas mismas palabras
-ya tienen en los gráficos de la escena (p. ej. si una cifra es dorada en
-el gráfico, resaltarla también en dorado en el subtítulo, no en un color
-suelto). Referencia de patrón ya probado:
-`videos/como-reducir-gastos-animado/edit/build_subs.py`.
-
-**Fidelidad al guion:** el guion que la usuaria aprueba no se reescribe
-ni se reordena por iniciativa propia. Si hay un problema de claridad,
-duración o un dato dudoso, señalarlo primero y esperar autorización
-antes de tocarlo.
-
-**Verificación de datos:** cuando el guion incluya cifras/porcentajes/
-afirmaciones financieras concretas (no ejemplos hipotéticos marcados como
-tales), hacer una pasada de verificación con fuentes cuando sea posible
-(WebSearch) antes de darlas por buenas en los gráficos. Si algo no se
-puede verificar o parece incorrecto, decirlo explícitamente en vez de
-asumir que está bien.
+**Verificación de datos (segunda revisión independiente):** cuando el
+guion incluya cifras/porcentajes/fechas/cálculos/afirmaciones financieras
+concretas (no ejemplos hipotéticos marcados como tales), verificar con
+fuentes primarias/oficiales cuando sea posible (WebSearch) antes de
+darlas por buenas en los gráficos — nunca inventar una fuente ni afirmar
+haber consultado algo que no se revisó. Distinguir dato comprobado /
+ejemplo hipotético / interpretación / pendiente de verificar. Si algo
+resulta incorrecto o no verificable, no cambiar el guion en silencio:
+reportar afirmación original, problema detectado, información correcta o
+limitación, fuente, y corrección recomendada — y pausar esa escena hasta
+que ella decida. Los gráficos deben representar las cantidades y
+proporciones con fidelidad (sin exagerar diferencias ni alterar escalas).
 
 **Storyboard antes de construir:** para un reel nuevo (no para un ajuste
-menor sobre uno ya aprobado), proponer primero una tabla de escenas
-(timestamp, narración, recurso visual, texto en pantalla, transición,
-objetivo) en español llano y esperar luz verde — salvo que la usuaria
-pida explícitamente saltarse ese paso ("dame tu mejor resultado",
-"guíate por el guion"), en cuyo caso se construye directo con buen
-criterio y se presenta el resultado terminado.
+menor sobre uno ya aprobado), proponer primero una tabla de escenas en
+español llano — timestamp, narración exacta, recurso visual, texto en
+pantalla, animación, transición, efecto de sonido previsto, música/cambio
+de intensidad si aplica, objetivo narrativo — y esperar luz verde. Salvo
+que la usuaria pida explícitamente saltarse ese paso ("dame tu mejor
+resultado", "guíate por el guion"), en cuyo caso se construye directo con
+buen criterio y se presenta el resultado terminado.
+
+**Diseño sonoro — obligatorio, no opcional:**
+- Todo video lleva SFX con función narrativa (nunca decorativos ni uno
+  por cada palabra/movimiento): whooshes en transiciones, pops al
+  aparecer cifras/elementos, clicks en botones/tablas/selecciones, ticks
+  en contadores/porcentajes, risers antes de revelar un dato, impacts
+  sutiles en cifras/conclusiones clave, swishes en movimientos
+  laterales, sonidos de confirmación al completar un paso/resultado.
+  Sincronizados con el instante exacto del movimiento/revelación/cambio
+  de escena/palabra enfatizada — nunca antes o después sin intención. Un
+  silencio intencional también es una herramienta narrativa válida.
+- Todo video lleva música instrumental de fondo que nunca compite con la
+  voz, con ritmo apropiado y que acompaña los cambios de intensidad —
+  nada infantil, exagerado ni excesivamente dramático.
+- Mezcla profesional: la voz es siempre el elemento dominante. Mezclar
+  con `amix normalize=0`, medir niveles con `ffmpeg -af volumedetect`
+  antes de fijar el volumen de SFX/música (no fiarse del oído), aplicar
+  ducking cuando la música conviva con el habla, evitar picos/distorsión
+  y cambios de volumen injustificados.
+- **Cómo se genera en este entorno** (sin internet para bancos de sonido
+  ni música con copyright, y sin clonación de voz): SFX se sintetizan
+  localmente con ffmpeg (ruido filtrado para whooshes, tonos cortos con
+  decay para ticks/pops/clicks, acordes de senos superpuestos para
+  chimes/impacts — ver `videos/como-reducir-gastos-animado/edit/sfx/`).
+  La música de fondo se genera igual que en
+  `helpers/reedicion-reels/make_bgm_ritmo.py` (pulso/ritmo local, no un
+  pad plano). Si falta narración, dejar el proyecto listo para que ella
+  la grabe — nunca inventar una grabación con su voz.
+- **Entregables cuando sea técnicamente posible:** video con voz+música+
+  SFX integrados (mezcla final), más las pistas por separado (voz
+  original, SFX, música) por si hace falta retocar en otra herramienta.
+
+**Subtítulos — se preparan, pero NO se queman en el video final (decisión
+de la usuaria, 2026-10-12):** construir igual los subtítulos palabra por
+palabra con el mismo criterio de siempre — paleta y resaltado de
+palabras clave coherentes con los colores que esas palabras ya tienen en
+los gráficos de esa escena, posición que no tape badges/íconos/texto en
+pantalla (referencia: `videos/como-reducir-gastos-animado/edit/build_subs.py`)
+— pero **no** incluir el paso de quemarlos (`ass=...`) sobre el
+`final.mp4` que se entrega. Entregar el video limpio **y además** el
+archivo de subtítulos ya armado (`.ass`/`.srt`, con los timestamps y
+colores ya resueltos) para que ella los agregue en CapCut Pro.
 
 **Dirección creativa — evitar:** monedas/billetes flotantes, iconografía
-financiera literal, zooms constantes, efectos sonoros excesivos, texto
-que tape innecesariamente la pantalla, animaciones sin función
-narrativa. Cada escena debe tener una identidad propia (no repetir
-exactamente la misma composición/animación entre videos).
+financiera literal (alcancías, bolsas de dinero), flechas sin contexto,
+gráficos bursátiles genéricos, zooms constantes, transiciones
+exageradas, efectos sonoros excesivos, texto que tape innecesariamente
+la pantalla, animaciones sin función narrativa/educativa. Cada escena
+debe tener identidad propia (no repetir exactamente la misma
+composición/animación entre videos), priorizando claridad sobre
+espectáculo.
+
+**Sistema de visualización financiera:** preferir el recurso que mejor
+explique la idea — comparaciones (alternativas lado a lado, proporción
+real), crecimiento (curvas/barras animadas para inversión/interés/
+rendimiento), procesos (líneas de tiempo/diagramas), cálculos (la
+operación matemática construyéndose progresivamente, como ya se hace con
+el payoff de sumas), datos (estadísticas animadas sin alterar escalas),
+conceptos abstractos (analogías visuales, nunca iconografía financiera
+prohibida).
+
+**Estrategia de retención:** gancho reforzado visual y sonoramente en los
+primeros 0–3s (sin intro de logo que retrase el contenido), progresión
+narrativa en el desarrollo con cambios visuales/sonoros en cada idea
+nueva/contraste/revelación (sin forzar cortes que perjudiquen la
+comprensión), cierre que refuerza la conclusión y acompaña el CTA ya
+aprobado (sin agregar llamados a la acción adicionales).
 
 **Eficiencia:** no regenerar un video completo por una corrección menor
 (editar el archivo puntual y volver a renderizar esa escena/paso, como
 ya se hace). No repreguntar información que ya está en el guion o en
-este archivo.
+este archivo. Reutilizar componentes gráficos/sonoros entre escenas
+cuando tenga sentido.
 
-**Control de calidad antes de entregar:** duración ≤60s, sincronía
-correcta, guion respetado, cifras verificadas o marcadas como ejemplo,
-transiciones fluidas, legible en móvil, identidad visual consistente
-(BRAND.md), sin efectos innecesarios, archivo final íntegro.
+**Control de calidad antes de entregar:** duración ≤60s, narración
+sincronizada, guion respetado (palabras/tono/intención/CTA), datos
+verificados o marcados como ejemplo, gráficos matemáticamente correctos,
+transiciones fluidas, legible en móvil, ritmo natural (ni acelerado ni
+artificial), identidad visual consistente (BRAND.md), presencia a cámara
+integrada con naturalidad cuando aplica (modalidad B), SFX sincronizados
+con lo que deben acompañar, voz siempre clara por encima de música/SFX,
+sin efectos repetitivos/excesivos/molestos, sin distorsión ni cortes de
+volumen injustificados, archivo final íntegro. No auto-aprobar el propio
+trabajo — señalar defectos reales si los hay.
 
 ## Actualizar las skills
 
