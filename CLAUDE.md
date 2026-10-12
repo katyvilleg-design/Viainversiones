@@ -238,20 +238,21 @@ buen criterio y se presenta el resultado terminado.
   `helpers/reedicion-reels/make_bgm_ritmo.py` (pulso/ritmo local, no un
   pad plano). Si falta narración, dejar el proyecto listo para que ella
   la grabe — nunca inventar una grabación con su voz.
-- **Entregables cuando sea técnicamente posible:** video con voz+música+
-  SFX integrados (mezcla final), más las pistas por separado (voz
-  original, SFX, música) por si hace falta retocar en otra herramienta.
+- **Entregable por defecto: un solo archivo** (decisión de la usuaria,
+  2026-10-12). `final.mp4` lleva voz+música+SFX ya integrados en una sola
+  mezcla — ese es el archivo que se entrega. **No enviar las pistas
+  separadas (voz/SFX/música) a menos que ella las pida explícitamente**;
+  construirlas/guardarlas en el proyecto está bien (por si hace falta
+  retocar), pero no son parte de la entrega por defecto.
 
-**Subtítulos — se preparan, pero NO se queman en el video final (decisión
-de la usuaria, 2026-10-12):** construir igual los subtítulos palabra por
-palabra con el mismo criterio de siempre — paleta y resaltado de
-palabras clave coherentes con los colores que esas palabras ya tienen en
-los gráficos de esa escena, posición que no tape badges/íconos/texto en
-pantalla (referencia: `videos/como-reducir-gastos-animado/edit/build_subs.py`)
-— pero **no** incluir el paso de quemarlos (`ass=...`) sobre el
-`final.mp4` que se entrega. Entregar el video limpio **y además** el
-archivo de subtítulos ya armado (`.ass`/`.srt`, con los timestamps y
-colores ya resueltos) para que ella los agregue en CapCut Pro.
+**Subtítulos — no se preparan ni se entregan por defecto (decisión de la
+usuaria, 2026-10-12):** ella los agrega directamente en CapCut Pro. No
+construir ni entregar un archivo `.ass`/`.srt` a menos que lo pida
+explícitamente para un video en particular. (Si en algún momento lo pide,
+aplica el mismo criterio de siempre: palabra por palabra, paleta y
+resaltado coherentes con los colores que esas palabras ya tienen en los
+gráficos de esa escena — referencia:
+`videos/como-reducir-gastos-animado/edit/build_subs.py`.)
 
 **Dirección creativa — evitar:** monedas/billetes flotantes, iconografía
 financiera literal (alcancías, bolsas de dinero), flechas sin contexto,
