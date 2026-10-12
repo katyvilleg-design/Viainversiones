@@ -189,6 +189,20 @@ nunca acelerar la voz para encajar).
   usuaria; si falta audio, dejar el proyecto listo para que ella lo
   grabe.
 
+**Subtítulos — obligatorio, no opcional:** todo reel lleva subtítulos
+palabra por palabra quemados encima de todo (último paso del montaje,
+después de cualquier escena/overlay). No basta con un estilo genérico
+plantado encima: el subtítulo debe leerse acorde a la estructura visual
+de ESE video en particular — mismo criterio de paleta que la pieza
+(colores de marca, nunca un acento que choque con lo que ya está en
+pantalla), posición que no tape badges/íconos/texto en pantalla de esa
+escena, y resaltado de palabras clave (cifras, palabras de
+solución/beneficio) coherente con los colores que esas mismas palabras
+ya tienen en los gráficos de la escena (p. ej. si una cifra es dorada en
+el gráfico, resaltarla también en dorado en el subtítulo, no en un color
+suelto). Referencia de patrón ya probado:
+`videos/como-reducir-gastos-animado/edit/build_subs.py`.
+
 **Fidelidad al guion:** el guion que la usuaria aprueba no se reescribe
 ni se reordena por iniciativa propia. Si hay un problema de claridad,
 duración o un dato dudoso, señalarlo primero y esperar autorización
