@@ -151,6 +151,80 @@ de fijar el volumen), y cómo armar subtítulos palabra por palabra con una
 palabra clave resaltada en otro color. El script reutilizable de música
 está en `helpers/reedicion-reels/make_bgm_ritmo.py`.
 
+## Sistema de producción audiovisual (regla fija, permanente)
+
+A partir de ahora, **todo** reel que se construya (editado desde cámara o
+100% animado desde audio) debe seguir este estándar sin que la usuaria lo
+repita cada vez. Resumen operativo de las instrucciones dadas el
+2026-10-12:
+
+**Rol:** actuar como equipo completo de producción (dirección creativa,
+motion graphics, data-viz, sonido, QA) — no solo como asesor. Ejecutar,
+no solo describir.
+
+**Especificaciones:** vertical 9:16, 1080x1920, MP4, máximo 60s (si el
+audio real supera 60s, avisar y pedir autorización antes de recortarlo —
+nunca acelerar la voz para encajar).
+
+**Diseño sonoro — obligatorio, no opcional:**
+- Todo video lleva SFX (whooshes en transiciones, pops al aparecer
+  cifras/elementos, ticks en contadores/porcentajes, impacts en remates,
+  risers antes de revelar un dato) sincronizados con el movimiento exacto
+  — nunca antes/después sin intención, nunca un efecto por cada palabra.
+- Todo video lleva música instrumental de fondo (ver abajo cómo se
+  genera en este entorno) que nunca compite con la voz.
+- La voz es siempre el elemento dominante: mezclar con `amix
+  normalize=0`, medir niveles con `ffmpeg -af volumedetect` antes de
+  fijar el volumen de SFX/música (no fiarse del oído), aplicar ducking
+  cuando la música conviva con el habla, evitar picos/distorsión.
+- **Cómo se genera en este entorno** (sin internet para bancos de sonido
+  ni música con copyright): SFX se sintetizan localmente con ffmpeg
+  (ruido filtrado para whooshes, tonos cortos con decay para
+  ticks/pops, acordes de senos superpuestos para chimes/impacts — igual
+  que en `videos/como-reducir-gastos-animado/edit/sfx/`). La música de
+  fondo se genera igual que en
+  `helpers/reedicion-reels/make_bgm_ritmo.py` (pulso/ritmo local, no un
+  pad plano, sin créditos de IA). No existe clonación de voz en este
+  entorno — nunca intentar generar una narración con la voz de la
+  usuaria; si falta audio, dejar el proyecto listo para que ella lo
+  grabe.
+
+**Fidelidad al guion:** el guion que la usuaria aprueba no se reescribe
+ni se reordena por iniciativa propia. Si hay un problema de claridad,
+duración o un dato dudoso, señalarlo primero y esperar autorización
+antes de tocarlo.
+
+**Verificación de datos:** cuando el guion incluya cifras/porcentajes/
+afirmaciones financieras concretas (no ejemplos hipotéticos marcados como
+tales), hacer una pasada de verificación con fuentes cuando sea posible
+(WebSearch) antes de darlas por buenas en los gráficos. Si algo no se
+puede verificar o parece incorrecto, decirlo explícitamente en vez de
+asumir que está bien.
+
+**Storyboard antes de construir:** para un reel nuevo (no para un ajuste
+menor sobre uno ya aprobado), proponer primero una tabla de escenas
+(timestamp, narración, recurso visual, texto en pantalla, transición,
+objetivo) en español llano y esperar luz verde — salvo que la usuaria
+pida explícitamente saltarse ese paso ("dame tu mejor resultado",
+"guíate por el guion"), en cuyo caso se construye directo con buen
+criterio y se presenta el resultado terminado.
+
+**Dirección creativa — evitar:** monedas/billetes flotantes, iconografía
+financiera literal, zooms constantes, efectos sonoros excesivos, texto
+que tape innecesariamente la pantalla, animaciones sin función
+narrativa. Cada escena debe tener una identidad propia (no repetir
+exactamente la misma composición/animación entre videos).
+
+**Eficiencia:** no regenerar un video completo por una corrección menor
+(editar el archivo puntual y volver a renderizar esa escena/paso, como
+ya se hace). No repreguntar información que ya está en el guion o en
+este archivo.
+
+**Control de calidad antes de entregar:** duración ≤60s, sincronía
+correcta, guion respetado, cifras verificadas o marcadas como ejemplo,
+transiciones fluidas, legible en móvil, identidad visual consistente
+(BRAND.md), sin efectos innecesarios, archivo final íntegro.
+
 ## Actualizar las skills
 
 Ambas skills están vendorizadas (copiadas dentro del repo, no como
