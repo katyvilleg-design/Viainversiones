@@ -211,15 +211,18 @@ que la usuaria pida explícitamente saltarse ese paso ("dame tu mejor
 resultado", "guíate por el guion"), en cuyo caso se construye directo con
 buen criterio y se presenta el resultado terminado.
 
-**Diseño sonoro — obligatorio, no opcional:**
-- Todo video lleva SFX con función narrativa (nunca decorativos ni uno
-  por cada palabra/movimiento): whooshes en transiciones, pops al
-  aparecer cifras/elementos, clicks en botones/tablas/selecciones, ticks
-  en contadores/porcentajes, risers antes de revelar un dato, impacts
-  sutiles en cifras/conclusiones clave, swishes en movimientos
-  laterales, sonidos de confirmación al completar un paso/resultado.
-  Sincronizados con el instante exacto del movimiento/revelación/cambio
-  de escena/palabra enfatizada — nunca antes o después sin intención. Un
+**Diseño sonoro — presente por defecto, pero ligero y con criterio (no
+una fórmula fija a aplicar mecánicamente — ajustado 2026-10-12 por
+feedback de la usuaria, ver más abajo):**
+- Todo video puede llevar SFX con función narrativa, pero **menos es
+  más**: no aplicar automáticamente las 8 categorías (whoosh/pop/click/
+  tick/riser/impact/swish/confirmación) en cada escena solo porque están
+  disponibles — usar criterio para decidir cuándo un sonido realmente
+  suma a un momento concreto (transición, revelación de cifra, cierre de
+  un conteo) y omitirlo cuando no aporta. Menos cues, mejor elegidos, es
+  mejor que saturar el video. Nunca decorativos ni uno por cada palabra/
+  movimiento. Sincronizados con el instante exacto del movimiento/
+  revelación/cambio de escena — nunca antes o después sin intención. Un
   silencio intencional también es una herramienta narrativa válida.
 - Todo video lleva música instrumental de fondo que nunca compite con la
   voz, con ritmo apropiado y que acompaña los cambios de intensidad —
@@ -231,13 +234,25 @@ buen criterio y se presenta el resultado terminado.
   y cambios de volumen injustificados.
 - **Cómo se genera en este entorno** (sin internet para bancos de sonido
   ni música con copyright, y sin clonación de voz): SFX se sintetizan
-  localmente con ffmpeg (ruido filtrado para whooshes, tonos cortos con
-  decay para ticks/pops/clicks, acordes de senos superpuestos para
-  chimes/impacts — ver `videos/como-reducir-gastos-animado/edit/sfx/`).
-  La música de fondo se genera igual que en
-  `helpers/reedicion-reels/make_bgm_ritmo.py` (pulso/ritmo local, no un
-  pad plano). Si falta narración, dejar el proyecto listo para que ella
-  la grabe — nunca inventar una grabación con su voz.
+  localmente con ffmpeg -- usar como referencia reutilizable
+  `.claude/skills/video-use/helpers/sfx/` (whoosh.wav, tick.wav,
+  chime.wav), no regenerar desde cero cada vez. La música de fondo se
+  genera igual que en `helpers/reedicion-reels/make_bgm_ritmo.py`
+  (pulso/ritmo local, no un pad plano). Si falta narración, dejar el
+  proyecto listo para que ella la grabe — nunca inventar una grabación
+  con su voz.
+- **Corrección del whoosh (2026-10-12, feedback de la usuaria):** la
+  usuaria reportó que el whoosh sonaba "como interferencia radial" y
+  hacía "mucho ruido" en el video -- el diseño original (ruido rosa
+  filtrado con bandpass, ancho de banda amplio) tiene justo esa textura
+  de estática/ruido blanco. Se reemplazó por un tono puro en barrido de
+  frecuencia descendente (sin ningún componente de ruido/estática,
+  sintetizado con `aevalsrc` + chirp lineal + lowpass suave, ver
+  `.claude/skills/video-use/helpers/sfx/whoosh.wav` y el comando en el
+  historial de este archivo). Usar SIEMPRE este whoosh nuevo de ahora en
+  adelante -- nunca volver al bandpass-noise original. Los reels ya
+  entregados antes de esta fecha NO se tocan (decisión explícita de la
+  usuaria: el cambio aplica solo hacia adelante).
 - **Entregable por defecto: un solo archivo** (decisión de la usuaria,
   2026-10-12). `final.mp4` lleva voz+música+SFX ya integrados en una sola
   mezcla — ese es el archivo que se entrega. **No enviar las pistas
